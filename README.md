@@ -12,8 +12,9 @@ Assuming your machine uses **EL9 OS** and has access to **cvmfs** (e.g., `lxplus
 ```bash
 setupATLAS
 lsetup git
+```bash
 
-2. Obtaining the Package
+### 2. Obtaining the Package
 
 Clone the repository with submodules and install Git LFS for large file handling:
 ### 2- Clone the repository (recursive ensures submodules are included)
