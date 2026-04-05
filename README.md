@@ -50,20 +50,20 @@ TRExFitter is a framework for building and performing statistical tests with hig
 
 **Prerequisites:**
 - TRExFitter installed and `trex-fitter` executable available in PATH.
-- Configuration file `config/HNL_mc20e_c.config` prepared (defines Jobs, Regions, Samples, Systematics, etc.).
+- Configuration file `config/HNL_run2_nominal.config` (nominal) or `config/HNL_run2_allSYS.config`(all systematics) prepared (defines Jobs, Regions, Samples, Systematics, etc.).
 - Input ntuples accessible (e.g., on AFS).
 
 All commands follow the pattern:
 ```
-trex-fitter [action] config/HNL_mc20e_c.config
+trex-fitter [action] config/HNL_run2_nomial.config
 ```
-Running a command creates/updates a folder named after the Job block in the config (e.g., `HNL_mc20e_c/`).
+Running a command creates/updates a folder named after the Job block in the config (e.g., `HNL_run2_nominal/`).
 
 **Tip:** Increase `DebugLevel: 1` or `2` in the config for more verbose output. Re-run previous steps after config changes if needed.
 
 ## Command Usage
 
-### 1. `trex-fitter n config/HNL_mc20e_c.config` - Input Histogram Production
+### 1. `trex-fitter n config/HNL_run2_nominal.config` - Input Histogram Production
 **Purpose:** Read ntuples and produce histograms for further use.
 
 **What happens:**
@@ -79,7 +79,7 @@ Running a command creates/updates a folder named after the Job block in the conf
 
 **Tips:** Avoid empty bins by grouping samples or adjusting binning.
 
-### 2. `trex-fitter w config/HNL_mc20e_c.config` - Create Workspace
+### 2. `trex-fitter w config/HNL_run2_nominal.config` - Create Workspace
 **Purpose:** Produce RooStats workspace for the fit model.
 
 **What happens:**
@@ -94,7 +94,7 @@ Running a command creates/updates a folder named after the Job block in the conf
 
 **Tuning:** Adjust `SystPruningShape`, `SystPruningNorm`, `SystLarge`.
 
-### 3. `trex-fitter d config/HNL_mc20e_c.config` - Pre-fit Plots
+### 3. `trex-fitter d config/HNL_run2_nominal.config` - Pre-fit Plots
 **Purpose:** Visualize regions before fitting.
 
 **What happens:**
@@ -105,7 +105,7 @@ Running a command creates/updates a folder named after the Job block in the conf
 - `PieChart.png`, `SignalRegions.png`: Background composition, signal fraction.
 - `Tables/` folder: Yields, LaTeX tables.
 
-### 4. `trex-fitter f config/HNL_mc20e_c.config` - Run Fit
+### 4. `trex-fitter f config/HNL_run2_nominal.config` - Run Fit
 **Purpose:** Perform the fit (default: signal+background).
 
 **What happens:**
@@ -120,7 +120,7 @@ Running a command creates/updates a folder named after the Job block in the conf
 
 **Background-only:** Set `FitType: backgroundonly` in Fit block.
 
-### 5. `trex-fitter p config/HNL_mc20e_c.config` - Post-fit Plots
+### 5. `trex-fitter p config/HNL_run2_nominal.config` - Post-fit Plots
 **Purpose:** Visualize model after fit.
 
 **What happens:**
@@ -133,7 +133,7 @@ Running a command creates/updates a folder named after the Job block in the conf
 
 **Note:** Negative signal strength hides signal in plots.
 
-### 6. `trex-fitter l config/HNL_mc20e_c.config` - Limits
+### 6. `trex-fitter l config/HNL_run2_nominal.config` - Limits
 **Purpose:** Calculate observed/expected upper limits (CLs method).
 
 **What happens:**
@@ -144,13 +144,13 @@ Running a command creates/updates a folder named after the Job block in the conf
 
 **Signal injection:** `SignalInjection: TRUE` in Limit block.
 
-### 7. `trex-fitter s config/HNL_mc20e_c.config` - Significance
+### 7. `trex-fitter s config/HNL_run2_nominal.config` - Significance
 **Purpose:** Compute observed/expected significance.
 
 **Outputs:**
 - `Significance/asymptotics/mySignificance_p0.root` (p0 tree).
 
-### 8. `trex-fitter r config/HNL_mc20e_c.config` - Ranking Plot
+### 8. `trex-fitter r config/HNL_run2_nominal.config` - Ranking Plot
 **Purpose:** Rank nuisance parameters by impact on signal strength (μ).
 
 **What happens:**
@@ -179,7 +179,7 @@ Running a command creates/updates a folder named after the Job block in the conf
 
 ### Smoothing & Pruning
 - Verify in `Systematics/` plots.
-- Slides: [Smoothing/Pruning details](link-if-available).
+
 
 ### Asimov Dataset
 - Set `FitBlind: TRUE` in Fit block.
@@ -193,5 +193,4 @@ Running a command creates/updates a folder named after the Job block in the conf
 - **Parallel ranking:** See TRExFitter README.
 - Re-run sequence: `n → w → d → f → p → l → s → r`.
 
-For full tutorial details, refer to the original documentation. Adapt config for your analysis (e.g., ttH → HNL).
 
