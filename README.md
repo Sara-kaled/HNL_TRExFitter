@@ -24,13 +24,19 @@ cd TRExFitter
 ```
 
 ## Install extension for large files used in CI tests
+```bash
 git lfs install
 cd -
+```
 
 ## If it is your first time cloning, or if submodules have changed later, run:
+```bash
 cd TRExFitter
 git submodule init
 git submodule update
+```
 
 ## This step is essential to set the correct paths and aliases for your local version. You must be inside the TRExFitter directory.
+```bash
 source setup.sh
+```
