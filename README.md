@@ -42,15 +42,16 @@ source setup.sh
 ```
 
 
-# TRExFitter Commands Guide for HNL_mc20e_c.config
+# TRExFitter Commands Guide for HNL_run2_nominal.config
 
 ## Introduction
 
-TRExFitter is a framework for building and performing statistical tests with high-energy physics data using HistFactory models. This README explains the core commands using the example configuration file `config/HNL_mc20e_c.config`. These commands guide you through the workflow from input histogram production to advanced analyses like limits, significance, and ranking plots.
+TRExFitter is a framework for building and performing statistical tests with high-energy physics data using HistFactory models. This README explains the core commands using the example configuration file `config/HNL_run2_nominal.config`. These commands guide you through the workflow from input histogram production to advanced analyses like limits, significance, and ranking plots.
 
 **Prerequisites:**
 - TRExFitter installed and `trex-fitter` executable available in PATH.
 - Configuration file `config/HNL_run2_nominal.config` (nominal) or `config/HNL_run2_allSYS.config`(all systematics) prepared (defines Jobs, Regions, Samples, Systematics, etc.).
+- Copy HNL_run2_nominal.config into TRExFitter/config directory
 - Input ntuples accessible (e.g., on AFS).
 
 All commands follow the pattern:
