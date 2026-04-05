@@ -12,18 +12,21 @@ Assuming your machine uses **EL9 OS** and has access to **cvmfs** (e.g., `lxplus
 ```bash
 setupATLAS
 lsetup git
-```bash
+```
 
 ### 2. Obtaining the Package
 
 Clone the repository with submodules and install Git LFS for large file handling:
-### 2- Clone the repository (recursive ensures submodules are included)
+ Clone the repository (recursive ensures submodules are included)
+```bash
 git clone --recursive ssh://git@gitlab.cern.ch:7999/TRExStats/TRExFitter.git
 cd TRExFitter
+```
 
 ## Install extension for large files used in CI tests
 git lfs install
 cd -
+
 ## If it is your first time cloning, or if submodules have changed later, run:
 cd TRExFitter
 git submodule init
